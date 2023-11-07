@@ -1,0 +1,22 @@
+{
+  "name": "vue2-tsx-rspack",
+  "version": "1.0.0",
+  "description": "Vue2 + TSX + Rspack demo!",
+  "main": "src/main.ts",
+  "repository": "https://github.com/y80/vue2-tsx-rspack",
+  "author": "oki <t.cpp@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rspack serve",
+    "build": "rspack build"
+  },
+  "dependencies": {
+    "vue": "^2.7.8"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.3.11",
+    "less": "^4.2.0",
+    "less-loader": "^11.1.0",
+    "vue-loader": "^15.11.0"
+  }
+}
