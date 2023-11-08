@@ -1,4 +1,5 @@
 const { defineConfig } = require('@rspack/cli')
+const { HtmlRspackPlugin } = require('@rspack/core')
 const { VueLoaderPlugin } = require('vue-loader')
 
 const config = defineConfig({
@@ -11,23 +12,16 @@ const config = defineConfig({
     historyApiFallback: true,
   },
 
-  resolve: {
-    extensions: ['.vue', '...'],
-  },
-
   experiments: { css: true },
 
-  builtins: {
-    html: [
-      {
-        template: './index.html',
-        title: 'Vue2 + TSX + Rspack',
-        favicon: './src/assets/logo.png',
-      },
-    ],
-  },
-
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlRspackPlugin({
+      template: './index.html',
+      title: 'Vue2 + TSX + Rspack',
+      favicon: './src/assets/logo.png',
+    }),
+  ],
 
   module: {
     rules: [
@@ -47,12 +41,22 @@ const config = defineConfig({
         options: {
           sourceMap: true,
           jsc: {
-            parser: {
-              syntax: 'typescript',
-            },
+            parser: { syntax: 'typescript' },
           },
         },
         type: 'javascript/auto',
+      },
+      {
+        test: /\.[jt]sx$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
+              ['@vue/babel-preset-jsx', { compositionAPI: true }],
+            ],
+          },
+        },
       },
       {
         test: /\.less$/,

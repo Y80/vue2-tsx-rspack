@@ -1,7 +1,7 @@
 {
   "name": "vue2-tsx-rspack",
   "version": "1.0.0",
-  "description": "Vue2 + TSX + Rspack demo!",
+  "description": "Vue2 + TSX + Rspack example",
   "main": "src/main.ts",
   "repository": "https://github.com/y80/vue2-tsx-rspack",
   "author": "oki <t.cpp@outlook.com>",
@@ -14,7 +14,12 @@
     "vue": "^2.7.8"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-typescript": "^7.23.2",
     "@rspack/cli": "^0.3.11",
+    "@rspack/core": "^0.3.11",
+    "@vue/babel-preset-jsx": "^1.4.0",
+    "babel-loader": "^9.1.3",
     "less": "^4.2.0",
     "less-loader": "^11.1.0",
     "vue-loader": "^15.11.0"

@@ -4,7 +4,5 @@ import './style.less'
 
 new Vue({
   el: '#app',
-  render(h) {
-    return h(App)
-  },
+  render: (h) => h(App),
 })
